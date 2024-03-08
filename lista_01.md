@@ -3,7 +3,7 @@
 - Faça uma cópia deste arquivo .md para um repositório próprio
 - Resolva as 6 questões objetivas assinalando a alternativa correta
 - Resolva as 4 questões dissertativas escrevendo no próprio arquivo .md
-  - lembre-se de utilizar as estruturas de código como ``esta aqui com ` `` ou
+- lembre-se de utilizar as estruturas de código como ``esta aqui com ` `` ou
 ```javascript
 //esta aqui com ```
 let a = "olá"
@@ -31,6 +31,17 @@ c) Imprime os números pares de 2 a 10.
 
 d) Imprime os números ímpares de 2 a 10.
 
+Resposta: C
+``` javascript
+let numero = 1
+while ( numero <= 10 ) {
+    if(numero % 2 === 0) {
+        console.log(numero)
+    }
+    numero++;
+}
+console.log('letra C')
+```
 ______
 
 **2)** Identificar a linha que falta no código para criar uma classe Veiculo com atributo marca, e uma classe Carro que herda de Veiculo com um método ligar(). 
@@ -47,6 +58,23 @@ C) class Moto extends Veiculo {};
 
 D) carro1.ligar();
 
+Resposta: B
+``` javascript
+class Veiculo {
+    constructor(marca){
+        this.marca = marca;
+    }
+}
+
+class Carro extends Veiculo {
+    ligar(){
+        console.log('Carro ligado!');
+    }
+}
+let carro = new Carro("Toyota");
+carro.ligar();
+console.log('Letra B')
+```
 ______
 
 **3)** Qual é o valor de resultado após a execução deste código?
@@ -63,6 +91,19 @@ C) 14
 
 D) 12
 
+Resposta: A
+``` javascript 
+let resultado = 0;
+for (let i = 10; i >= 0; i -= 2) {
+    if(i === 4) {
+     continue;
+    }
+    if(i === 6) {
+        break;
+    }
+    resultado += i;
+} console.log(`o resultado é `+ resultado + ` letra A`)
+```
 ______
 
 **4)** Como você criaria um método `acelerar()` em uma classe `Carro`, que recebe um parâmetro `velocidade` e o adiciona a um atributo `velocidadeAtual`?
@@ -75,6 +116,7 @@ C) ![Uma imagem](assets/ex04_3.PNG)
 
 D) ![Uma imagem](assets/ex04_4.PNG)
 
+Resposta: Letra B
 ______
 
 **5)** Qual a forma correta de definir uma classe Carro em JavaScript, com um método ligar() e um atributo marca?
@@ -87,6 +129,7 @@ C) ![Uma imagem](assets/ex05_3.PNG)
 
 D) ![Uma imagem](assets/ex05_4.PNG)
 
+Resposta: Letra A
 ______
 
 **6)** Observe o código abaixo:
@@ -103,6 +146,25 @@ C) "João Maria"
 
 D) "undefined undefined"
 
+Resposta: A
+```javascript
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+
+    greet() {
+        return `olá, meu nome é ${this.name}.`;
+    }
+}
+
+const person1 = new Person("João");
+const person2 = new Person("Maria");
+
+console.log(person1.greet() + " " + person2.greet())
+
+console.log('Letra A')
+```
 ______
 
 # Questões dissertativas
@@ -120,6 +182,24 @@ Criando e manipulando Animais:
 
 Dica: Utilize `console.log()` para exibir as informações!
 
+Resposta: 
+```javascript
+class Animal {
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+    };
+
+    descrever() {
+        return `olá, sou o ${this.nome} e tenho ${this.idade} de idade! sou um animal conhecido por ser muito sociável`;
+    };
+}
+
+const gato = new Animal('gato', '10 anos');
+const cachorro = new Animal('cachorro', '15 anos');
+
+console.log(gato.descrever() + " / " + cachorro.descrever()) 
+```
 ______
 
 **8)** Nos últimos dias tivemos a oportunidade de ter contato com Programação Orientada a Objetos, e tivemos contato com o tema "herança". Herança é um princípio de orientação a objetos, que permite que classes compartilhem atributos e métodos. Ela é usada na intenção de reaproveitar código ou comportamento generalizado ou especializar operações ou atributos. Então vamos praticar esse conteúdo nessa questão.
@@ -145,7 +225,35 @@ Chamando os Métodos:
 
 Dica: Utilize console.log() para exibir as informações!
 
+Resposta: 
+``` javascript
+class Animal {
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+    descrever() {
+        return `esse bixo aqui é um ${this.nome} que tem ${this.idade} de idade`;
+    }
+};
 
+class Gato extends Animal {
+    constructor(nome, idade, cor) {
+        super(nome, idade);
+        this.cor = cor;
+    };
+    miar() {
+        return `o ${this.nome} faz minhaaaaaaaaaaaaaaauu!!!!!!!!`;
+    }
+}
+
+
+const cachorro = new Animal('cachorro', '12 anos', 'caramelo');
+const gato = new Gato('gato','50 anos', 'preto');
+
+console.log(gato.descrever()+ ` ` + gato.miar());
+console.log(cachorro.descrever());
+```
 ______
 
 **9)** Vamos criar um programa em JavaScript para somar notas!
@@ -167,7 +275,29 @@ Chamando o Método para Ver o Total:
 
 Dica: Utilize console.log() para exibir as informações!
 
+Resposta: 
+``` javascript
+class SomadorDeNotas {
+    constructor() {
+        this.total = 0;
+    };
 
+    adicionarNota(nota) {
+    return this.total += nota;
+    };
+
+    verTotal(){
+        console.log(this.total);
+    };
+}
+
+const somador = new SomadorDeNotas();
+
+somador.adicionarNota(10);
+somador.adicionarNota(40);
+
+somador.verTotal()
+```
 ______
 
 **10)** Imagine que você está criando um programa em JavaScript para uma escola. Neste programa, existem diferentes tipos de funcionários, cada um com suas próprias características. Considere as seguintes classes:
@@ -188,3 +318,40 @@ Agora, sua tarefa é escrever um código em JavaScript que crie as classes Funci
 - Para cada objeto, chame o método calcularSalario() e mostre o salário calculado no console.
 
 Certifique-se de explicar cada parte do código utilizando comentários, explicando para que serve cada atributo e método, bem como a lógica por trás do cálculo de salário para o tipo de funcionário Professor.
+
+Resposta: 
+```javascript
+class funcionarios { //cria classe funcionário
+    constructor(nome, idade, salarioBase, doMes) { //adiciona atributos da classe
+        this.Nome = nome; //define atribustos
+        this.Idade = idade;
+        this.SalarioBase = salarioBase;
+        this.doMes = doMes;
+    };
+    calcularSalario() { //adiciona método calcular salário
+        if (this.doMes === false) { //se funcionário não for funcionário do mês
+            return `Não é funcionário do mês e recebe ${this.SalarioBase}`; //recebe salário comum
+        } else { //se não
+            return `Funcionário do mês e recebe ` + this.SalarioBase*1.1; //recebe bônus de 10% no solário
+        };
+
+    }
+};
+
+class Professor extends funcionarios { //cria classe professor que é classe filha de funcionários
+    constructor( Disciplina, tempoAulaSemana, nome, idade, salarioBase, doMes ) { //adiciona parâmetros de professor e da classe funcionários
+        super(nome, idade, salarioBase); //puxa parâmetros da classe funcionários
+        this.Disciplina = Disciplina;
+        this.tempoAulaSemana = tempoAulaSemana;
+        this.doMes = doMes;
+    };
+    calcularSalario(){
+        return `o salário do professor  é: ` + this.SalarioBase*this.tempoAulaSemana + ` e seu nome é ${this.Nome}`; //salário do professor calculado por horas de aula por semana vezes o valor do salário que dá-se por hora aula
+    }
+};
+
+const prof1 = new Professor( 'design', 10, 'Mauricio de Nassau', 420, 5000, true ); //cria objeto prof1 utilizando os atributos em ordem
+const prof2 = new Professor('Programação', 40, 'Pedro de Alcântara João Carlos Leopoldo Salvador Bibiano Francisco Xavier de Paula Leocádio Miguel Gabriel Rafael Gonzaga', 199, 5000, false ); //cria o objeto prof2 adicionando os atributos (parâmetros) em ordem
+console.log(prof1.calcularSalario()); //adiciona ao console o professor utilizando o método
+console.log(prof2.calcularSalario())  //adiciona ao console o professor utilizando o método
+```
